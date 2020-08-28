@@ -64,8 +64,7 @@ public class Main {
                .concat(",windgust=")
                .concat(s.getProperties().getWindGust().getValue().toString())
                .concat(" ")
-               .concat(String.valueOf(s.getProperties().getTimestamp().toLocalDateTime().toInstant(
-                   ZoneOffset.UTC).toEpochMilli())));
+               .concat(String.valueOf(s.getProperties().getTimestamp().toInstant().toEpochMilli())));
             System.out.println(line.get());
         });
         
