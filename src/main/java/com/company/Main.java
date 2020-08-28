@@ -57,7 +57,7 @@ public class Main {
         AtomicReference<String> line = new AtomicReference<>("");
         metrics.stream().forEach((s) -> {
           
-          line.set(s.getProperties().getStation().replace("https://api.weather.gov/stations/", "")
+          line.set(s.getProperties().getStation().replace("https://api.weather.gov/stations/", "stationReading,station=")
                .concat(" temperature="+s.getProperties().getTemperature().getValue().toString())
                .concat(",dewpoint=")
                .concat(s.getProperties().getDewpoint().getValue().toString())
