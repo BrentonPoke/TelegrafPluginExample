@@ -25,7 +25,7 @@ public class Main {
             scanner.nextLine();
             StationService service = WeatherServiceGenerator.createService(StationService.class);
     
-            Call<ObservationFeature> call = service.getObservations("GYGM4");
+            Call<ObservationFeature> call = service.getObservations("QOKA3");
             try {
                 Response<ObservationFeature> response = call.execute();
                 ObservationFeature observationResponse = response.body();
@@ -34,7 +34,7 @@ public class Main {
                     .filter(a->
                         a.getProperties()
                             .getDewpoint().
-                            getValue() > 15.0f
+                            getValue() > 14.0f
                             &&
                             a.getProperties()
                                 .getWindSpeed()
