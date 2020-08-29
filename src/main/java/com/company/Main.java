@@ -5,7 +5,6 @@ import gov.noaa.stations.StationService;
 import gov.noaa.stations.observations.Observation;
 import gov.noaa.stations.observations.ObservationFeature;
 import java.io.IOException;
-import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
