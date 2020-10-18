@@ -1,4 +1,4 @@
-# TelegrafPluginExample
+# Telegraf Plugin Example
 Example plugin for telegraf. Just gets weather stuff.
 
 ## Build & Run
