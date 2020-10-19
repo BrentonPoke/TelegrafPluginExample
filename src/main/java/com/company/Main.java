@@ -52,19 +52,19 @@ public class Main {
     static void lineProtocol(List<Observation> metrics){
         /*Must use atomic reference because the streams api utilizes multi-threading under the hood
          and type String would just result in filling up the string pool with empty String objects*/
-        
-        AtomicReference<String> line = new AtomicReference<>("");
+    
+        StringBuffer stringBuffer = new StringBuffer();
         metrics.stream().forEach((s) -> {
-          
-          line.set(s.getProperties().getStation().replace("https://api.weather.gov/stations/", "stationReading,station=")
-               .concat(" temperature="+s.getProperties().getTemperature().getValue().toString())
-               .concat(",dewpoint=")
-               .concat(s.getProperties().getDewpoint().getValue().toString())
-               .concat(",windgust=")
-               .concat(s.getProperties().getWindGust().getValue().toString())
-               .concat(" ")
-               .concat(String.valueOf(s.getProperties().getTimestamp().toInstant().toEpochMilli())));
-            System.out.println(line.get());
+            stringBuffer.append(s.getProperties().getStation().replace("https://api.weather.gov/stations/","stationReading,station="))
+                .append(" temperature="+s.getProperties().getTemperature().getValue().toString())
+                .append(",dewpoint=")
+                .append(s.getProperties().getDewpoint().getValue().toString())
+                .append(",windgust=")
+                .append(s.getProperties().getWindGust().getValue().toString())
+                .append(" ")
+                .append(s.getProperties().getTimestamp().toInstant().toEpochMilli());
+            System.out.println(stringBuffer.toString());
+            stringBuffer.delete(0,stringBuffer.length());
         });
         
     }
