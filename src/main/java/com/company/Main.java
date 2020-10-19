@@ -1,9 +1,9 @@
 package com.company;
 
 import gov.noaa.WeatherServiceGenerator;
-import gov.noaa.stations.StationService;
-import gov.noaa.stations.observations.Observation;
-import gov.noaa.stations.observations.ObservationFeature;
+import gov.noaa.models.stations.StationService;
+import gov.noaa.models.stations.observations.Observation;
+import gov.noaa.models.stations.observations.ObservationFeature;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class Main {
             scanner.nextLine();
             StationService service = WeatherServiceGenerator.createService(StationService.class);
     
-            Call<ObservationFeature> call = service.getObservations("QOKA3");
+            Call<ObservationFeature> call = service.getObservations("BDLM4");
             try {
                 Response<ObservationFeature> response = call.execute();
                 ObservationFeature observationResponse = response.body();
